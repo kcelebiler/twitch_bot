@@ -15,8 +15,6 @@ const client = new tmi.Client({
 client.connect().catch(console.error);
 client.on('message', (channel, tags, message, self) => {
 	if(self) return;
-    console.log(message);
-    console.log(tags.badges);
     if(message.toLowerCase() === '!pet') {
         try{
             if (tags.badges.broadcaster==1){
