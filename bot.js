@@ -28,6 +28,12 @@ let movies = ['American Physco', 'The Signal', 'The Terminal', 'The Runaways', '
 'Good Will Hunting', 'Eternal Sunshine of the Spotless Mind', 'Zootopia', '3 Idiots', 'I Am Legend', 'Lucy', 'The Imitation Game',
 'Dead Poets Society', '127 Hours', 'Inception', 'Saving Private Ryan', 'The Martian', 'The Pianist', 'V for Vendetta',
 'Bohemian Rhapsody', 'The Shawshank Redemption', 'The Pursuit of Happyness', 'The Green Mile']
+let tvseries = ['Friends', 'The Office', 'How I Met Your Mother', 'Invincible', 'Key and Peele', 'After Life',
+'The Falcon and the Winter Soldier', 'WandaVision', 'Brooklyn Nine-Nine', 'The Witcher', 'Solar Opposites', 'Cosmos: A Spacetime Odyssey',
+'The Mandalorian', 'Oz', 'Agent Carter', 'Merlin', 'Inside Bill\'s Brain: Decoding Bill Gates', 'Smallville', 
+'Rick and Morty', 'Taboo', 'The Big Bang Theory', 'Constantine', 'Avatar The Last Airbender', 'Sherlock', 'Black Mirror',
+'The Pacific', 'Chernobly', 'Peaky Blinders', 'Sons of Anarchy', 'When They See Us', 'Devs', 'See', 'Generation War', 'Dogs of Berlin', 'You', 
+'Band of Brothers', 'The Boys', 'Queens Gambit', '11.22.63']
 client.on('message', (channel, tags, message, self) => {
 	if(self) return;
     if(message.toLowerCase() === '!pet') {
@@ -52,5 +58,9 @@ client.on('message', (channel, tags, message, self) => {
     if(message.toLowerCase() === '!recommendmovie'){
         var movie_index=Math.floor(Math.random() * movies.length);
         client.say(channel, movies[movie_index]);
+    }
+    if(message.toLowerCase() === '!recommendtvseries'){
+        var tvseries_index=Math.floor(Math.random() * tvseries.length);
+        client.say(channel, tvseries[tvseries_index]);
     }
 });
