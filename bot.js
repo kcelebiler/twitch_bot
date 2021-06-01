@@ -28,12 +28,9 @@ client.on('message', (channel, tags, message, self) => {
             else if (tags.badges.vip==1){
                 client.say(channel, `PETTHEVIPS`);
             }
-            else if (tags.badges.subscriber==1){
-                client.say(channel, `PETTHESUBS`);
-            }
         }
         catch(err){
-            client.say(channel, `PETTHEVIEWERS`);
+            client.say(channel, `SIKE`);
         }
 	}
 });
