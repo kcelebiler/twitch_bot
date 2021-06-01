@@ -13,6 +13,21 @@ const client = new tmi.Client({
 	channels: [ 'sulphured' ]
 });
 client.connect().catch(console.error);
+let movies = ['American Physco', 'The Signal', 'The Terminal', 'The Runaways', 'The Dirt', 'Taxi Driver',
+'Soul', 'Sound of Metal', 'Nomadland', 'School of Rock', 'Parasite', 'Event Horizon', 'Full Metal Jacket', 'Marriage Story',
+'Hacksaw Ridge','Mad Max: Fury Road', 'Matrix Trilogy', 'Sonic The Hedgehog', 'Edge of Tomorrow', 'Whiplash', 'Nick and Norah\'s Infinite Playlist', 
+'Dunkirk', 'Venom', '1917', 'Pawn Sacrifice', 'Source Code', 'The Place Beyond the Pines', 'Brothers', 'Ford v Ferrari',
+'Snowpiercer', 'Green Street Holigans', 'The Shack', 'The Man from Earth', 'Spiderman Trilogy', 'Star Wars Movies', 'Forrest Gump', 
+'Life is Beautiful', 'Batman Trilogy', 'The Truman Show', 'Drive', 'The Boy in the Striped Pyjamas', 'Transcendence', 'A Quiet Place',
+'Batman: The Dark Knight Returns Part 1 & 2', 'Never Back Down 1 & 2', 'The Lord Of the Rings Trilogy', 'Hobbit Trilogy', 'Prince of Persia: The Sands of Time',
+'Percy Jackson & the Olympians: The Lightning Thief', 'Harry Potter Movies', 'Passengers', 'First Man', 'The Notebook', 'Up',
+'Once Upon a Time... in Hollywood', 'The Theory of Everything', 'Downfall', 'Ratatouille', 'WALL·E', 'Constantine', 'Pearl Harbor',
+'Enemy at the Gates', 'Bird Box', 'Atonement', 'Blue Valentine', 'La La Land', 'Contact', 'Spider-Man: Into the Spider-Verse',
+'Gravity', 'Ex Machina', 'Arrival', 'Back to the Future Trilogy', 'Blade Runner Movies', 'Oblivion', 'I, Robot', 
+'Elysium', 'Pacific Rim', 'Chappie', 'District 9', '2001: A Space Odyssey', 'Watchmen', 'Crazy, Stupid, Love',
+'Good Will Hunting', 'Eternal Sunshine of the Spotless Mind', 'Zootopia', '3 Idiots', 'I Am Legend', 'Lucy', 'The Imitation Game',
+'Dead Poets Society', '127 Hours', 'Inception', 'Saving Private Ryan', 'The Martian', 'The Pianist', 'V for Vendetta',
+'Bohemian Rhapsody', 'The Shawshank Redemption', 'The Pursuit of Happyness', 'The Green Mile']
 client.on('message', (channel, tags, message, self) => {
 	if(self) return;
     if(message.toLowerCase() === '!pet') {
@@ -26,9 +41,16 @@ client.on('message', (channel, tags, message, self) => {
             else if (tags.badges.vip==1){
                 client.say(channel, `PETTHEVIPS`);
             }
+            else if (tags.badges.subscriber==1){
+                client.say(channel, `PETTHESUBS`);
+            }
         }
         catch(err){
-            client.say(channel, `SIKE`);
+            client.say(channel, `PETTHEVIEWERS`);
         }
 	}
+    if(message.toLowerCase() === '!recommendmovie'){
+        var movie_index=Math.floor(Math.random() * movies.length);
+        client.say(channel, movies[movie_index]);
+    }
 });
