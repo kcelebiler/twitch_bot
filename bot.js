@@ -7,8 +7,8 @@ const client = new tmi.Client({
 		secure: true
 	},
 	identity: {
-		username: 'Sulphure_Pet_Bot',
-		password: 'oauth:nmovp2gj6apq8iy7j89x5ifles8dio'
+		username: 'SulPetBot',
+		password: 'oauth:ncf0jj1pkh9z3xp35kp6hkrxzfvkjd'
 	},
 	channels: [ 'sulphured' ]
 });
